@@ -1,0 +1,29 @@
+import { Grid, Typography } from '@material-ui/core';
+import {Link} from 'react-router-dom';
+import '../css/main.css';
+
+export default function Navbar(props) {
+
+    return (
+        <Grid container row>
+            <Grid item xs={2}>
+              <Link to="/"><Typography variant="h4" className="title">Retail</Typography></Link>
+            </Grid>
+
+            <Grid item xs={7}/>
+
+            <Grid item xs={3}>
+            <Link to="about" className="text-blue">About</Link>
+            {!props.loggedIn ? 
+            <>
+                <Link to="login" className="text-blue">Login</Link>
+                <Link to="signin" className="text-blue">Sign-In</Link>
+                </> : 
+                <>
+                <Link to="products" className="text-blue">Products</Link>
+                <Link to="Sales" className="text-blue">Sales</Link>
+                </>}
+            </Grid>
+        </Grid>
+    );
+}
