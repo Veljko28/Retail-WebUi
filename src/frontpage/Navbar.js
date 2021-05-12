@@ -13,15 +13,16 @@ export default function Navbar(props) {
             <Grid item xs={7}/>
 
             <Grid item xs={3}>
-            <Link to="about" className="text-blue">About</Link>
             {!props.loggedIn ? 
             <>
+                <Link to="about" className="text-blue">About</Link>
                 <Link to="login" className="text-blue">Login</Link>
                 <Link to="signin" className="text-blue">Sign-In</Link>
                 </> : 
                 <>
                 <Link to="products" className="text-blue">Products</Link>
-                <Link to="Sales" className="text-blue">Sales</Link>
+                <Link to="sales" className="text-blue">Sales</Link>
+                <Link to="/" className="text-blue">Logout</Link>
                 </>}
             </Grid>
         </Grid>

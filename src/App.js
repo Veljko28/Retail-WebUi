@@ -13,6 +13,7 @@ import SalePage from './components/SalePage';
 import Login from './components/Login';
 import About from './components/About';
 import SignIn from './components/SignIn';
+import Sales from './components/Sales';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/retail">
+          <Route path="/products">
             <SalePage />
           </Route>
           <Route path="/login">
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/signin">
             <SignIn />
+          </Route>
+          <Route path="/sales">
+            <Sales />
           </Route>
           <Route path="/">
             <Grid container>
