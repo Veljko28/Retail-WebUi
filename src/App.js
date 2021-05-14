@@ -15,6 +15,7 @@ import About from './components/About';
 import SignIn from './components/SignIn';
 import Sales from './components/Sales';
 import Add from './components/Add';
+import SaleDetail from './components/SaleDetail';
 
 
 
@@ -37,9 +38,12 @@ function App() {
           <Route path="/signin">
             <SignIn />
           </Route>
+          <Route path="/sales/:id" children={<SaleDetail />} />
+          
           <Route path="/sales">
             <Sales />
           </Route>
+
           <Route path="/">
             <Grid container>
               <Grid item xs={0} md={1}/>
