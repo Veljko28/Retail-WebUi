@@ -109,6 +109,7 @@ export default function SalePage() {
                             </div>
 
                         </div>
+                        
                 <Footer/>
             </Grid>
 

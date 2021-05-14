@@ -2,9 +2,12 @@ import React from 'react';
 import {Grid, Typography} from '@material-ui/core';
 import Navbar from '../frontpage/Navbar';
 import Footer from '../frontpage/Footer';
+import { useHistory } from "react-router-dom";
 
 
 export default function Sales() {
+
+    let history = useHistory();
 
     const [sales,handleSales] = React.useState([
         {
@@ -107,7 +110,7 @@ export default function Sales() {
                 <tbody>
                     {sales.map(x => {
                         return (
-                            <tr>
+                            <tr onClick={() => history.push("/sales/"+x.Id.toString().substring(1))}>
                                 <td>{x.Id}</td>
                                 <td>{x.CashierId}</td>
                                 <td>{x.SaleDate}</td>
