@@ -14,7 +14,6 @@ import Login from './components/Login';
 import About from './components/About';
 import SignIn from './components/SignIn';
 import Sales from './components/Sales';
-import Add from './components/Add';
 import SaleDetail from './components/SaleDetail';
 
 
@@ -23,9 +22,6 @@ function App() {
   return (
     <Router>
        <Switch>
-          <Route path="/add">
-            <Add />
-          </Route>
           <Route path="/about">
             <About />
           </Route>
