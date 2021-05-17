@@ -4,6 +4,9 @@ import Navbar from '../frontpage/Navbar';
 import Footer from '../frontpage/Footer';
 import {VictoryChart, VictoryLine, VictoryTheme} from 'victory';
 import '../css/main.css';
+import Add from './products/Add';
+import Delete from './products/Delete';
+import Update from './products/Update';
 
 export default function SalePage() {
     const [products,handleProducts] = React.useState([
@@ -29,6 +32,7 @@ export default function SalePage() {
         },
     ]);
     const [selectedProduct,changeSelectedProduct] = React.useState(products[0]);
+    const [selectedAction, changeSelectedAction] = React.useState('add');
     const [data,ChangeData] = React.useState([
 
         { x: '5 May', y: 2 },
@@ -41,6 +45,23 @@ export default function SalePage() {
     const sold = Math.round(data.reduce((a,b) => {return a + b.y;}, 0));
     const tax = Math.round(sold * 0.8 * 100) / 100; 
     const amount = Math.round(parseInt(selectedProduct.price.substring(1))*sold);
+
+
+    // const initForm = {
+    //     ProductName: '',
+    //     Description: '',
+    //     RetailPrice: '',
+    // };
+
+    // const [form, handleForm] = React.useState(initForm);
+    // const [isLoading,setLoading] = React.useState(false);
+
+    // const callApi = () => {
+    // //   axios.post('localhost:5000', form).then(res => {
+    // //         const response = res.json();
+    // //   })
+    //  setLoading(true);
+    // }
 
     return (
         <Grid container>
@@ -109,7 +130,14 @@ export default function SalePage() {
                             </div>
 
                         </div>
-                        
+
+
+                        <div class="center" style={{marginBottom: '30px'}}>
+                            <button onClick={() => changeSelectedAction('add')} class={selectedAction === 'add' ? "blue-op" : "blue"}>Add</button>
+                            <button onClick={() => changeSelectedAction('update')} class={selectedAction === 'update' ? "blue-op" : "blue"}>Update</button>
+                            <button onClick={() => changeSelectedAction('delete')} class={selectedAction === 'delete' ? "blue-op" : "blue"}>Delete</button>
+                            {selectedAction === 'add' ? <Add/> : selectedAction === 'update' ? <Update/> : <Delete/>}
+                        </div>
                 <Footer/>
             </Grid>
 

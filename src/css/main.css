@@ -16,8 +16,27 @@ body {
 .blue {
     color: #0d7dd4;
     font-size: 20px;
+    padding: 15px;
     text-align: center;
-    display: inline-block; 
+    display: inline-block;
+    border: none;
+    background-color: #fff;
+}
+
+.blue-op {
+    color: #0d7dd4;
+    font-size: 20px;
+    padding: 15px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    background-color: #fff;
+    opacity: 50%;
+}
+
+.blue:hover {
+    opacity: 80%;
+    cursor: pointer;
 }
 
 .text-blue:hover {
@@ -173,7 +192,7 @@ body {
 }
 
 .prices {
-    margin-top: 45px;
+    margin-top: 75px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -200,6 +219,10 @@ body {
     border-bottom: 1px solid #dddddd;
 }
 
+.table tbody tr:hover {
+    cursor: pointer;
+    opacity: 65%;
+}
 
 .table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
