@@ -1,5 +1,11 @@
 import React from 'react';
-import { Grid, CircularProgress } from '@material-ui/core';
+import { Grid, CircularProgress, Snackbar } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
+import axios from 'axios';
+
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
 
 
 export default function Add() {
@@ -13,12 +19,31 @@ export default function Add() {
 
     const [form, handleForm] = React.useState(initForm);
     const [isLoading,setLoading] = React.useState(false);
+    const [error,displayError] = React.useState(false);
+    const [errorMsg, handleErrMsg] = React.useState('Cannot create this product !');
+
+    const url = "localhost:3000";
+    const route = "/product";
 
     const callApi = () => {
-    //   axios.post('localhost:5000', form).then(res => {
-    //         const response = res.json();
-    //   })
-     setLoading(true);
+        if (form.productName === ""){
+            handleErrMsg("Product must have a name !");
+            displayError(true);
+        }
+        else if (form.description === "") {
+            handleErrMsg("Product must have a description !");
+            displayError(true);
+        }
+        else if (form.retailPrice === "") {
+            handleErrMsg("Product must have a price !");
+            displayError(true);
+        }
+        else {
+            axios.post(url.concat(route), form).then(res => {
+            const response = res.json();
+            })
+            setLoading(true);  
+        }
     }
 
 
@@ -32,7 +57,7 @@ export default function Add() {
                 <input type="text" placeholder="Product Name" className="inp-field-sign"
                 onChange={e => handleForm({...form, productName: e.target.value})} />
                 <input type="number" placeholder="Retail Price" className="inp-field-sign" 
-                onChange={e => handleForm({...form, retailPrice: e.target.value})}/>
+                onChange={e => handleForm({...form, retailPrice: e.target.value.toString()})}/>
                 <br/>
                 <textarea type="text" placeholder="Description" className="inp-field" rows="3"
                 onChange={e => handleForm({...form, description: e.target.value})}></textarea>
@@ -40,6 +65,11 @@ export default function Add() {
                 <button className="start-btn" onClick={() => callApi()}>
                     {isLoading ? <CircularProgress color="primary" size={20} /> : "Add"}
                 </button>
+                <Snackbar open={error} autoHideDuration={5000} onClose={() => displayError(false)}>
+                    <Alert onClose={() => displayError(false) } severity="error">
+                    {errorMsg}
+                    </Alert>
+                </Snackbar>
         </div>
     </Grid>.
 

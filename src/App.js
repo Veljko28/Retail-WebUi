@@ -1,7 +1,4 @@
 import { Grid, Typography } from '@material-ui/core';
-import Navbar from './frontpage/Navbar';
-import Footer from './frontpage/Footer';
-import Svg from './undraw.svg';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,12 +6,17 @@ import {
   Link
 } from "react-router-dom";
 import './css/main.css';
+
 import SalePage from './components/SalePage';
 import Login from './components/Login';
 import About from './components/About';
 import SignIn from './components/SignIn';
 import Sales from './components/Sales';
 import SaleDetail from './components/SaleDetail';
+
+import Navbar from './frontpage/Navbar';
+import Footer from './frontpage/Footer';
+import Svg from './undraw.svg';
 
 
 
