@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,7 +7,8 @@ import {
 } from "react-router-dom";
 import './css/main.css';
 
-import SalePage from './components/SalePage';
+// import SalePage from './components/SalePage';
+import Products from './components/Products';
 import Login from './components/Login';
 import About from './components/About';
 import SignIn from './components/SignIn';
@@ -19,16 +20,25 @@ import Footer from './frontpage/Footer';
 import Svg from './undraw.svg';
 
 
+const theme = createMuiTheme({
+   palette: {
+        primary: {
+          main: '#0d7dd4'
+        }
+      }
+    });
+
 
 function App() {
   return (
+    <MuiThemeProvider theme={theme}>
     <Router>
        <Switch>
           <Route path="/about">
             <About />
           </Route>
           <Route path="/products">
-            <SalePage />
+            <Products />
           </Route>
           <Route path="/login">
             <Login />
@@ -77,6 +87,7 @@ function App() {
           </Route>
         </Switch>
     </Router>
+    </MuiThemeProvider>
   );
 }
 
