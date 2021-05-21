@@ -264,3 +264,12 @@ body {
 .quantity {
     font-size: 12px;
 }
+
+.line-btm {
+    border-bottom: 2px solid #e5e5e5;
+}
+
+.bar {
+    display: flex;
+    justify-content: center;
+}

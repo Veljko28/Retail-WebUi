@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import Navbar from '../frontpage/Navbar';
 import Footer from '../frontpage/Footer';
+import SideBar from '../frontpage/SideBar';
 import {VictoryChart, VictoryLine, VictoryTheme} from 'victory';
 import '../css/main.css';
 import Add from './products/Add';
@@ -66,7 +67,9 @@ export default function SalePage() {
     return (
         <Grid container>
 
-        <Grid item xs={1}/>
+        <Grid item xs={1}>
+            <SideBar/>
+        </Grid>
 
             <Grid item xs={10}>
                 <Navbar loggedIn={true}/>
